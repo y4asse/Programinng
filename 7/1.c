@@ -33,6 +33,7 @@ int main(void)
 	printf("sa.x = %d\n", sa.x);
 	printf("sa.y = %ld\n", sa.y);
 	printf("sa.z = %f\n", sa.z);
+	// テスト
 	
 	return (0);
 }
