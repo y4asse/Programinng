@@ -12,7 +12,7 @@ void set_xyz(struct xyz *p, int x, long y, double z)
 {
 	/* ここにコードを追加*/
 	p->x = x;
-	p->y = y
+	p->y = y;
 	p->z = z;
 }
 
