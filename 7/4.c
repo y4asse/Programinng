@@ -11,9 +11,8 @@ void put_time(void)
 	int month = local->tm_mon + 1;
 	int day = local->tm_mday;
 	int hour = local->tm_hour;
-	int minute = local->tm_min;
-	int second = local->tm_sec;
-	printf("%d年%d月%d日 %d時%d分%d秒です\n", year, month, day, hour, minute, second);
+
+	printf("%d年%d月%d日%s", year, month, day, hour > 11 ? "午後" : "午前");
 }
 
 int main(void)
