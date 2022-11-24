@@ -12,8 +12,7 @@ int main(void)
 
 	//ファイルオープン処理	
 	/* ここにコードを追加  */
-    fp = fopen(filename, "r");
-    if((fp = fopen("filename", "r")) == NULL){
+    if((fp = fopen(filename, "r")) == NULL){
 		printf("ファイルをオープンできません。");
 		return 0;
     }else {
@@ -22,6 +21,7 @@ int main(void)
         while((ch=fgetc(fp)) != EOF){
             if(ch >='A' && ch <= 'z'){
                 putchar(ch);
+                count ++;
             }
         }
     }

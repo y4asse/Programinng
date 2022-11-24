@@ -14,13 +14,21 @@ int main(void)
 	scanf("%s",dname);
 	
 	/* ここにコードを追加  */
+    if((sfp = fopen(sname, "r")) == NULL){
 		printf("コピー元ファイルをオープンできません。\n");
-	else{
+    }else{
 		/* ここにコードを追加  */
+        if((dfp = fopen(dname, "w")) == NULL){
 			printf("コピー先ファイルをオープンできません。\n");
+        }
 		else{
 			/* ここにコードを追加  */
+            while((ch = fgetc(sfp)) != EOF){
+                fputc(ch, dfp);
+            }
+            fclose(dfp);
 		}
+        fclose(sfp);
 	}
 
 	return (0);	
