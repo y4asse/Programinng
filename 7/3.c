@@ -21,12 +21,16 @@ typedef struct{
 double distanceof(point pa, point pb)
 {
 	/* ここにコードを追加*/
+	return (sqrt(sqr(pa.x - pb.x) + sqr(pa.y - pb.y)));
+
 }
 
 /* 3辺から三角形の面積を返す */
 double triangleof(tri_point tri)
 {
 	/* ここにコードを追加*/
+	double s = (tri.ab + tri.bc + tri.ca)/2;
+	return (sqrt(s*(s-tri.ab)*(s-tri.bc)*(s-tri.ca)));
 }
 
 int main(void)
@@ -49,6 +53,9 @@ int main(void)
 	
 	/* 3辺の長さを構造体に格納 */
 	/* ここにコードを追加*/
+	tp.ab = distanceof(p1, p2);
+	tp.bc = distanceof(p2, p3);
+	tp.ca = distanceof(p3, p1);
 
 	printf("それらの点によって作られる三角形の面積は%.2fです。\n", triangleof(tp));
 	return (0);

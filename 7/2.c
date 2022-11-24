@@ -11,6 +11,11 @@ typedef struct{
 XYZ XYZof(int x, long y, double z)
 {
 	/* ここにコードを追加*/
+	XYZ temp;
+	temp.x = x;
+	temp.y = y;
+	temp.z = z;
+	return temp;
 }
 
 int main(void)
