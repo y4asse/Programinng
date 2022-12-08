@@ -16,24 +16,29 @@ int main(void)
 	scanf("%s",dname);
 
     	/* ここにコードを追加  */
-        if(ここから)
+    if((sfp = fopen(sname, "r")) == NULL){
 		printf("コピー元ファイルをオープンできません。\n");
-	else{
+	}else{
 		/* ここにコードを追加  */
+		if((dfp = fopen(dname, "w")) == NULL){
 			printf("コピー先ファイルをオープンできません。\n");
-		else{	
+		}else{	
 			while((ch = fgetc(sfp)) != EOF){
 				/*各行の大文字の数をカウントし小文字に変換*/
 				/* ここにコードを追加  */
-
+				if(ch >= 'A' && ch <= 'Z'){
+					count ++;
+					ch += 32;
+				}
 				/*各行の終わりにきたら行番号と大文字の数を表示*/
-	                		if(ch == '\n'){
+	            if(ch == '\n'){
 					printf("line%d = %d\n", line, count);
 					line++; 
 					count=0;
 				}
 				/*コピー先ファイルにコピー*/
 				/* ここにコードを追加  */
+				fputc(ch, dfp);
 			}
 			fclose(dfp);
 		}
@@ -42,6 +47,7 @@ int main(void)
 		/* コピー後, コピー先のファイルの内容を表示 */
 		/* コピー先ファイルをオープン */
 		/* ここにコードを追加  */
+		if((dfp = fopen(dname, "r")) == NULL){
 			printf("コピー先ファイルをオープンできません。\n");
 		}
 		else{
@@ -51,6 +57,6 @@ int main(void)
 			}
 			fclose(dfp);
 		}
-	}
+}	
 	return (0);
 }
