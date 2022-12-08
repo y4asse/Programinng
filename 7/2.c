@@ -11,8 +11,16 @@ typedef struct{
 XYZ XYZof(int x, long y, double z)
 {
 	/* ここにコードを追加*/
+<<<<<<< HEAD
 	XYZ p = {x, y, z};
 	return p;
+=======
+	XYZ temp;
+	temp.x = x;
+	temp.y = y;
+	temp.z = z;
+	return temp;
+>>>>>>> ff40b1f40badad90756abd66a00f061b89bd279b
 }
 
 int main(void)
