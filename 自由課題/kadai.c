@@ -29,6 +29,7 @@ int read(char filename[]) {
 	fclose(fp);
     return 1;
 }
+
 // ファイル書き込み処理
 // 返り値　成功なら1,失敗なら0
 int write(char filename[]) {
@@ -46,13 +47,15 @@ int write(char filename[]) {
 
 int main(void)
 {   
-	char filename[60];
-	
-	int count = 0;
-	scanf("%s",filename);
-	printf("入力ファイル名：%s\n",filename);
+    int controller = 1;
+    // 操作の繰り返し
+    while(controller != 0){
+        char filename[60];
+        int count = 0;
+        scanf("%d", &controller);
+        printf("操作を入力してください\n内容を表示-> 1\n%d\n",controller);
 
 	
-	
+    }
 	return 0;
 }
