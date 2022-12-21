@@ -3,12 +3,13 @@
 
 // ユーザ構造体
 typedef struct {
-    char name[20];  
     int user_id;
+    char name[20];  
 }user;
 
 // 投稿構造体
 typedef struct {
+    int post_id;
     user user;
     time_t time;
 }post;
