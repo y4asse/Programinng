@@ -52,10 +52,8 @@ int main(void)
     while(controller != 0){
         char filename[60];
         int count = 0;
+        printf("操作を入力してください\n0 -> 終了\n1 -> 内容を表示\n");
         scanf("%d", &controller);
-        printf("操作を入力してください\n内容を表示-> 1\n%d\n",controller);
-
-	
     }
 	return 0;
 }
