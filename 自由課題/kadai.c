@@ -57,6 +57,10 @@ int main(void)
         // 操作の選択
         switch (controller)
         {
+        // 終了
+        case 0:
+            printf("終了します\n");
+            break;
         // 内容の表示
         case 1:
             show_post("post.txt");
