@@ -14,37 +14,36 @@ typedef struct {
     time_t time;
 }post;
 
-// ファイルオープン処理
-// 返り値　成功なら1,失敗なら0
-int read(char filename[]) {
+// 内容表示処理
+// void
+void show_post(char filename[]) {
     FILE *fp;
     int ch;
     if((fp = fopen(filename, "r")) == NULL){
 		printf("ファイルをオープンできません。");
-		return 0;
     }else {
+        printf("===============\n");
         while((ch=fgetc(fp)) != EOF){
-            
+            putchar(ch);
         }
+        printf("\n===============\n");
     }
 	fclose(fp);
-    return 1;
 }
 
 // ファイル書き込み処理
-// 返り値　成功なら1,失敗なら0
-int write(char filename[]) {
+// void
+void write(char filename[]) {
     int ch;
     FILE *fp;
     if((fp = fopen(filename, "w")) == NULL){
 		printf("ファイルをオープンできません。");
-		return 0;
     }else {
         fprintf(fp, "hello");
     }
 	fclose(fp);
-    return 1;
 }
+
 
 int main(void)
 {   
@@ -53,8 +52,23 @@ int main(void)
     while(controller != 0){
         char filename[60];
         int count = 0;
-        printf("操作を入力してください\n0 -> 終了\n1 -> 内容を表示\n");
+        printf("<<<操作を入力してください>>>\n0 -> 終了\n1 -> 内容を表示\n");
         scanf("%d", &controller);
+        // 操作の選択
+        switch (controller)
+        {
+        // 内容の表示
+        case 1:
+            show_post("post.txt");
+            break;
+        // 投稿する
+        case 2:
+            
+            break;
+        default:
+            printf("正しい数字を入力してください\n");
+            break;
+        }
     }
 	return 0;
 }
