@@ -1,3 +1,9 @@
-1,taro,hello
-fadfaa
-default
+1:taro >>> hello
+2:jiro >>> hello!
+3:sburo >>> how
+4:are >>> you
+5:siro >>> fadfaa
+
+7:muro >>> 
+8:hatiro >>> 
+9:kuro >>> hi
