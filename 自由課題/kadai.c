@@ -22,6 +22,7 @@ void show_post(char filename[]) {
     if((fp = fopen(filename, "r")) == NULL){
 		printf("ファイルをオープンできません。");
     }else {
+        printf("投稿内容を表示します");
         printf("===============\n");
         while((ch=fgetc(fp)) != EOF){
             putchar(ch);
@@ -31,15 +32,19 @@ void show_post(char filename[]) {
 	fclose(fp);
 }
 
-// ファイル書き込み処理
+// 投稿書き込み処理
 // void
-void write(char filename[]) {
+void write_post(char filename[]) {
     int ch;
     FILE *fp;
-    if((fp = fopen(filename, "w")) == NULL){
+    if((fp = fopen(filename, "a")) == NULL){
 		printf("ファイルをオープンできません。");
     }else {
-        fprintf(fp, "hello");
+        char text[200];
+        printf("投稿内容を入力してください(200文字以内)\n");
+        scanf("%s", text);
+        fprintf(fp, "%s\n", text);
+        printf("書き込みました\n");
     }
 	fclose(fp);
 }
@@ -50,9 +55,8 @@ int main(void)
     int controller = 1;
     // 操作の繰り返し
     while(controller != 0){
-        char filename[60];
         int count = 0;
-        printf("<<<操作を入力してください>>>\n0 -> 終了\n1 -> 内容を表示\n");
+        printf("<<<操作を入力してください>>>\n0 -> 終了\n1 -> 内容を表示\n2 -> 投稿する\n");
         scanf("%d", &controller);
         // 操作の選択
         switch (controller)
@@ -67,7 +71,7 @@ int main(void)
             break;
         // 投稿する
         case 2:
-            
+            write_post("post.txt");
             break;
         default:
             printf("正しい数字を入力してください\n");
