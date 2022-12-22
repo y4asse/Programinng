@@ -4,29 +4,44 @@
 // ユーザ構造体
 typedef struct {
     int user_id;
-    char name[20];  
+    char name[20]; 
+    char password[20]; 
 }user;
 
 // 投稿構造体
 typedef struct {
     int post_id;
-    user user;
+    char user[20];
     time_t time;
 }post;
 
-// 内容表示処理
-// void
-void show_post(char filename[]) {
+int get_line(char filename[]){
+    int line=0;
     FILE *fp;
     int ch;
+    char text[200];
+    fp = fopen(filename, "r");
+    while ((ch = fgetc(fp)) != EOF) {
+        if (ch == '\n') line++;
+    }
+	fclose(fp);
+    return line;
+}
+
+// 内容表示処理
+// 返り値　post[]
+post get_post(char filename[]) {
+    FILE *fp;
+    int ch;
+    int line;
     if((fp = fopen(filename, "r")) == NULL){
 		printf("ファイルをオープンできません。");
     }else {
         printf("投稿内容を表示します");
         printf("===============\n");
-        while((ch=fgetc(fp)) != EOF){
-            putchar(ch);
-        }
+        // for(fscanf(fp, "%[^,],%d,%s\n", post_id, &name, text) != EOF) {
+        //     printf("%d.%s 2022-02-25\n%s", post_)
+        // }
         printf("\n===============\n");
     }
 	fclose(fp);
@@ -40,6 +55,7 @@ void write_post(char filename[]) {
     if((fp = fopen(filename, "a")) == NULL){
 		printf("ファイルをオープンできません。");
     }else {
+        char name[10];
         char text[200];
         printf("投稿内容を入力してください(200文字以内)\n");
         scanf("%s", text);
@@ -67,11 +83,11 @@ int main(void)
             break;
         // 内容の表示
         case 1:
-            show_post("post.txt");
+            // show_post("post.txt");
             break;
         // 投稿する
         case 2:
-            write_post("post.txt");
+            // write_post("post.txt");
             break;
         default:
             printf("正しい数字を入力してください\n");
